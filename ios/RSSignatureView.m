@@ -212,9 +212,10 @@
 		NSFileManager *man = [NSFileManager defaultManager];
 		NSDictionary *attrs = [man attributesOfItemAtPath:tempPath error: NULL];
 		//UInt32 result = [attrs fileSize];
-
+		NSURL *pathURI = [NSURL fileURLWithPath: tempPath];
+		//
 		NSString *base64Encoded = [imageData base64EncodedStringWithOptions:0];
-		[self.manager publishSaveImageEvent: tempPath withEncoded:base64Encoded];
+		[self.manager publishSaveImageEvent:tempPath withEncoded:base64Encoded withURI:[pathURI absoluteURL]];
 	}
 }
 

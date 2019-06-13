@@ -181,6 +181,7 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
       WritableMap event = Arguments.createMap();
       event.putString("pathName", file.getAbsolutePath());
       event.putString("encoded", encoded);
+      event.putString("uri", file.toURI().toString());
       ReactContext reactContext = (ReactContext) getContext();
       reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "topChange", event);
     } catch (Exception e) {
