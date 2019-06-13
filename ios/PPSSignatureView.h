@@ -3,10 +3,11 @@
 
 @class RSSignatureViewManager;
 
-@interface PPSSignatureView : GLKView
+@interface PPSSignatureView : GLKView <UIGestureRecognizerDelegate>
 
 @property (assign, nonatomic) UIColor *strokeColor;
 @property (assign, nonatomic) BOOL hasSignature;
+@property (assign, nonatomic) BOOL enabled;
 @property (strong, nonatomic) UIImage *signatureImage;
 @property (nonatomic, strong) RSSignatureViewManager *manager;
 

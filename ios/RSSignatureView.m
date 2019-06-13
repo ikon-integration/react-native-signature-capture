@@ -19,6 +19,7 @@
 	BOOL _showBorder;
 	BOOL _showNativeButtons;
 	BOOL _showTitleLabel;
+	BOOL _isEnabled;
 }
 
 @synthesize sign;
@@ -165,6 +166,10 @@
 
 - (void)setSquare:(BOOL)square {
 	_square = square;
+}
+
+- (void)setEnabled:(BOOL)enabled {
+	[self.sign setEnabled:enabled];
 }
 
 - (void)setShowBorder:(BOOL)showBorder {

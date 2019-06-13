@@ -126,7 +126,7 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 
 		self.backgroundColor = [UIColor whiteColor];
 		self.opaque = NO;
-
+		self.enabled = YES;
 		self.context = context;
 		self.drawableDepthFormat = GLKViewDrawableDepthFormat24;
 		self.enableSetNeedsDisplay = YES;
@@ -139,23 +139,25 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 		// Capture touches
 		UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
 		pan.maximumNumberOfTouches = pan.minimumNumberOfTouches = 1;
+		pan.delegate = self;
 		pan.cancelsTouchesInView = YES;
 		[self addGestureRecognizer:pan];
 
 		// For dotting your i's
 		UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
 		tap.cancelsTouchesInView = YES;
+		tap.delegate = self;
 		[self addGestureRecognizer:tap];
 
 		// Erase with long press
 		UILongPressGestureRecognizer *longer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
 		longer.cancelsTouchesInView = YES;
+		longer.delegate = self;
 		[self addGestureRecognizer:longer];
 	}
 	else
 		[NSException raise:@"NSOpenGLES2ContextException" format:@"Failed to create OpenGL ES2 context"];
 }
-
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -332,7 +334,9 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 
 
 #pragma mark - Gesture Recognizers
-
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+	return self.enabled;
+}
 
 - (void)tap:(UITapGestureRecognizer *)t {
 	CGPoint l = [t locationInView:self];
