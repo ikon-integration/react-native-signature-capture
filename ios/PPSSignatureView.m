@@ -114,8 +114,9 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 @end
 
 
-@implementation PPSSignatureView {
-}
+@implementation PPSSignatureView {}
+
+@synthesize enabled;
 
 - (void)commonInit {
 	context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
