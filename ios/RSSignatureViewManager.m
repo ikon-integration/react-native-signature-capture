@@ -13,6 +13,7 @@ RCT_EXPORT_VIEW_PROPERTY(square, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(showBorder, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(showNativeButtons, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(showTitleLabel, BOOL)
+RCT_EXPORT_VIEW_PROPERTY(enabled, BOOL)
 
 
 -(dispatch_queue_t) methodQueue
