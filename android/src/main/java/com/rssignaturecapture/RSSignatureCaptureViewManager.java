@@ -20,6 +20,7 @@ public class RSSignatureCaptureViewManager extends ViewGroupManager<RSSignatureC
 
 	public static final String PROPS_SAVE_IMAGE_FILE="saveImageFileInExtStorage";
 	public static final String PROPS_VIEW_MODE = "viewMode";
+	public static final String PROPS_ENABLED = "enabled";
 	public static final String PROPS_SHOW_NATIVE_BUTTONS="showNativeButtons";
 	public static final String PROPS_MAX_SIZE="maxSize";
 	public static final String PROPS_MIN_STROKE_WIDTH="minStrokeWidth";
@@ -39,6 +40,14 @@ public class RSSignatureCaptureViewManager extends ViewGroupManager<RSSignatureC
 	@Override
 	public String getName() {
 		return "RSSignatureView";
+	}
+
+	@ReactProp(name = PROPS_ENABLED)
+	public void setSaveImageFileInExtStorage(RSSignatureCaptureMainView view, @Nullable Boolean enabled) {
+		Log.d("setEnabled:", "" + enabled);
+		if(view!=null){
+			view.setEnabled(enabled);
+		}
 	}
 
 	@ReactProp(name = PROPS_SAVE_IMAGE_FILE)
