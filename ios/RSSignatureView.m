@@ -66,7 +66,7 @@
 		sign = [[PPSSignatureView alloc]
 						initWithFrame: CGRectMake(0, 0, screen.width, screen.height)
 						context: _context];
-		[sign setEnabled:_enabled];
+		[sign setEnabled:_enabled]; //in case of setting disabled on initialization
 		sign.manager = manager;
 
 		[self addSubview:sign];
