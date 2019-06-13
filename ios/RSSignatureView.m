@@ -19,7 +19,7 @@
 	BOOL _showBorder;
 	BOOL _showNativeButtons;
 	BOOL _showTitleLabel;
-	BOOL _isEnabled;
+	BOOL _enabled;
 }
 
 @synthesize sign;
@@ -30,6 +30,7 @@
   _showBorder = YES;
 	_showNativeButtons = YES;
 	_showTitleLabel = YES;
+	_enabled = YES;
 	if ((self = [super init])) {
 		_border = [CAShapeLayer layer];
 		_border.strokeColor = [UIColor blackColor].CGColor;
@@ -169,6 +170,7 @@
 }
 
 - (void)setEnabled:(BOOL)enabled {
+	_enabled = enabled;
 	[self.sign setEnabled:enabled];
 }
 

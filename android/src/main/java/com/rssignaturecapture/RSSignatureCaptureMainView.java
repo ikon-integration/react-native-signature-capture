@@ -40,6 +40,7 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
   Boolean showBorder = true;
   Boolean showNativeButtons = true;
   Boolean showTitleLabel = true;
+  Boolean enabled = true;
   int maxSize = 500;
 
   public RSSignatureCaptureMainView(Context context, Activity activity) {
@@ -89,6 +90,11 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
 
   public void setMaxSize(int size) {
     this.maxSize = size;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+    this.signatureView.setEnabled(enabled);
   }
 
 

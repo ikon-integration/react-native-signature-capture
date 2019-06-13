@@ -93,6 +93,7 @@ SignatureCapture.propTypes = {
   ...View.propTypes,
     rotateClockwise: PropTypes.bool,
     square: PropTypes.bool,
+    enabled: PropTypes.bool,
     saveImageFileInExtStorage: PropTypes.bool,
     viewMode: PropTypes.string,
     showBorder: PropTypes.bool,
