@@ -43,7 +43,7 @@ public class RSSignatureCaptureViewManager extends ViewGroupManager<RSSignatureC
 	}
 
 	@ReactProp(name = PROPS_ENABLED)
-	public void setSaveImageFileInExtStorage(RSSignatureCaptureMainView view, @Nullable Boolean enabled) {
+	public void setEnabled(RSSignatureCaptureMainView view, @Nullable Boolean enabled) {
 		Log.d("setEnabled:", "" + enabled);
 		if(view!=null){
 			view.setEnabled(enabled);
@@ -119,7 +119,7 @@ public class RSSignatureCaptureViewManager extends ViewGroupManager<RSSignatureC
 	@Override
 	public RSSignatureCaptureMainView createViewInstance(ThemedReactContext context) {
 		Log.d("React"," View manager createViewInstance:");
-		return new RSSignatureCaptureMainView(context, mContextModule.getCurrentActivity());
+		return new RSSignatureCaptureMainView(context, mContextModule.getActivity());
 	}
 
 	@Override
