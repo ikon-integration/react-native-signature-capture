@@ -54,14 +54,13 @@
 - (void)layoutSubviews
 {
 	[super layoutSubviews];
+	CGSize screen = self.bounds.size;
 	if (!_loaded) {
 
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:)
 																								 name:UIDeviceOrientationDidChangeNotification object:nil];
 
 		_context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-
-		CGSize screen = self.bounds.size;
 
 		sign = [[PPSSignatureView alloc]
 						initWithFrame: CGRectMake(0, 0, screen.width, screen.height)
@@ -157,6 +156,7 @@
 		}
 
 	}
+	[sign setFrame:CGRectMake(0,0,screen.width, screen.height)];
 	_loaded = true;
 	_border.path = _showBorder ? [UIBezierPath bezierPathWithRect:self.bounds].CGPath : nil;
 	_border.frame = self.bounds;
