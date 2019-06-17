@@ -4,7 +4,8 @@ import {
   View, StyleSheet, Text, Image, TouchableOpacity
 } from 'react-native';
 
-import SignatureView from './SignatureView';
+//import SignatureView from './SignatureView';
+import SignatureView from './SignatureViewNoFlex';
 
 const flexCenter = {
   flex: 1,
