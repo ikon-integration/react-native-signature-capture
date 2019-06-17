@@ -237,7 +237,6 @@ public class RSSignatureCaptureView extends View {
 		return new ControlTimedPoints(new TimedPoint(m1.x + tx, m1.y + ty), new TimedPoint(m2.x + tx, m2.y + ty));
 	}
 
-	@Override
 	public void setEnabled(Boolean enabled) {
 		super.setEnabled(enabled);
 		multipleTouchDragged = false;
