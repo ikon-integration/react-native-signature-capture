@@ -238,6 +238,12 @@ public class RSSignatureCaptureView extends View {
 	}
 
 	@Override
+	public void setEnabled(Boolean enabled) {
+		super.setEnabled(enabled);
+		multipleTouchDragged = false;
+	}
+
+	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		if (!isEnabled() || event.getPointerCount() > 1 || (multipleTouchDragged && event.getAction() != MotionEvent.ACTION_UP)) {
 		    multipleTouchDragged = true;
