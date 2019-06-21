@@ -223,7 +223,15 @@
 		NSURL *pathURI = [NSURL fileURLWithPath: tempPath];
 		//
 		NSString *base64Encoded = [imageData base64EncodedStringWithOptions:0];
-		[self.manager publishSaveImageEvent:tempPath withEncoded:base64Encoded withURI:[pathURI absoluteURL]];
+		[self.manager publishSaveImageEvent:@{
+			@"pathName": tempPath,
+			@"encoded": base64Encoded,
+			@"uri": pathURI,
+			@"fileName": @"signature.png",
+			@"fileSize": [NSNumber numberWithUnsignedInteger: imageData.length],
+			@"type": @"image/png",
+			@"width": [NSNumber numberWithDouble: signImage.size.width],
+			@"height": [NSNumber numberWithDouble: signImage.size.height]}];
 	}
 }
 

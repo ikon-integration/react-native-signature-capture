@@ -188,6 +188,11 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
       event.putString("pathName", file.getAbsolutePath());
       event.putString("encoded", encoded);
       event.putString("uri", file.toURI().toString());
+      event.putString("fileName",fname);
+      event.putString("fileSize", resizedBitmap.getByteCount());
+      event.putString("type", "image/png");
+      event.putString("width", resizedBitmap.getWidth());
+      event.putString("height", resizedBitmap.getHeight());
       ReactContext reactContext = (ReactContext) getContext();
       reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "topChange", event);
     } catch (Exception e) {

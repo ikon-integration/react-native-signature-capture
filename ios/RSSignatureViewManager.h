@@ -5,6 +5,6 @@
 
 -(void) saveImage:(nonnull NSNumber *)reactTag;
 -(void) resetImage:(nonnull NSNumber *)reactTag;
--(void) publishSaveImageEvent:(NSString *) aTempPath withEncoded: (NSString *) aEncoded withURI: (NSString *)aURI;
+-(void) publishSaveImageEvent:(nonnull NSDictionary *) event;
 -(void) publishDraggedEvent;
 @end
